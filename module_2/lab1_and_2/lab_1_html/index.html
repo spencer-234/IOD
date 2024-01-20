@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My First Page - [Spencer]</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="This is my first website">
+    <meta name="keywords" content="HTML, CSS, Javascript">
+    <meta name="author" content="Spencer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- works like <a href="/index.html">Home</a> -->
+            <a href="./index.html">Home</a>
+            <!-- This works like <a href="/form.html">Home</a> -->
+            <a href="./form.html">Form</a>
+        </nav>    
+    </header>
+    <main>
+        <h1>My web devleopment learning journey</h1>
+        <article>
+            <h2>HTML elements - div, span, pre, p, ul, li, ol</h2>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>Javascript</div>
+
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Javascript</span>
+
+            <pre>
+                Text in           a pre element
+                is displayed in a fixed-width
+                font, and it preserves both spaces and
+                line breaks
+            </pre>
+
+            <p>
+                text in a p element is displayed in a fixed-width, font, and it
+                preserves both space and line breaks
+            </p>
+
+            <ul>
+                <li>avocado</li>
+                <li>kiwi</li>
+                <li>banana</li>
+            </ul>
+            
+            <ol>
+                <li>avocado</li>
+                <li>kiwi</li>
+                <li>banana</li>
+            </ol>
+        </article>
+        <article>
+            <h2>HTML elements - table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">First header</th>
+                        <th>Second header</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>First cell - first row</td>
+                        <td>Second cell - first row</td>
+                        <td>Third cell - first row</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">First cell - second row</td>
+                        <td>Second cell - second row</td>
+                        <td>Third cell - second row</td>
+                    </tr>
+                    <tr>
+                        <td>First cell - third row</td>
+                        <td>Second cell - third row</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <img src="/" alt="Some Image">
+
+            <video controls width="250">
+                <Source src="/" type="video/mp4" />
+            </video>
+
+            <figure>
+                <figcaption>Listen to the T-rex</figcaption>
+                <audio controls src="/" ></audio>
+            </figure>
+        </article>
+    </main>
+    <footer>Copyright 2024 &copy;</footer>
+</body>
+</html>

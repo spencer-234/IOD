@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>My Website - Form</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="This is my first website">
+    <meta name="keywords" content="HTML, CSS, Javascript">
+    <meta name="author" content="Spencer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- works like <a href="/index.html">Home</a> -->
+            <a href="./index.html">Home</a>
+            <!-- This works like <a href="/form.html">Home</a> -->
+            <a href="./form.html">Form</a>
+        </nav>
+    </header>
+    <main>
+        <form method="POST" action="http://localhost:3000/profile">
+            <div>
+                <label for="firstName">First name:</label>
+                <input type="text" id="firstName" name="firstName">
+            </div>
+            <div>
+                <label for="lastName">Last name:</label>
+                <input type="text" id="lastName" name="lastName">
+            </div>
+
+            <div>
+                <input type="radio" id="html" name="favorite_language" value="html">
+                <label for="html">HTML</label>
+                <input type="radio" id="css" name="favorite_language" value="css">
+                <label for="css">CSS</label>
+                <input type="radio" id="javascript" name="favorite_language" value="javascript">
+                <label for="javascript">Javascript</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="bike">
+                <label for="vehicle1">I have a bike</label>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="car">
+                <label for="vehicle2">I have a car</label>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="boat">
+                <label for="vehicle3">I have a boat</label>
+            </div>
+            <div>
+                <label for="cars">Choose a car</label>
+                <select name="cars" id="cars">
+                    <option value="bmw">BMW</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                    <option value="tesla">Tesla</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit Form</button>
+        </form>
+    </main>
+    <footer>Copyright 2024 &copy;</footer>
+</body>
+</html>
