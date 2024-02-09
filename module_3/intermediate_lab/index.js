@@ -2,7 +2,7 @@
 1. Create a function that takes a string as a parameter and returns the string with the first
     character of each word changed into a capital letter, as in the example below. Test it with
     different strings.
-
+*/
     const ucFirstLetters = (words) => {
         let uppercase = words.split(" ");
 
@@ -15,13 +15,13 @@
     let words = "hello my name is spencer";
  
     console.log(ucFirstLetters(words));
-
+/*
 2. Create a function truncate(str, max) that truncates a given string of text if its total
     length is greater than the max length. It should return either the truncated text, with an
     ellipsis (...) added to the end if it was too long, or the original text otherwise.
 
     b) Write another variant of the truncate function that uses a conditional operator.
-
+*/
     const truncate = (str, max) => {
         if (str.length > (max)) {
             return `${str.substring(0, (max))}...`
@@ -37,7 +37,7 @@
 
     console.log(truncate(sentence, 4));
     console.log(truncateCondition(sentence, 30));
-
+/*
 3. Use the following animals array for the below tasks. Test each one by printing the result to
 the console. Review the following link for tips:
 
@@ -52,7 +52,7 @@ the console. Review the following link for tips:
     e) Write a function findMatchingAnimals(beginsWith) that returns a new array
     containing all the animals that begin with the beginsWith string. Try to make it work
     regardless of upper/lower case.
-
+*/
     const animals = ['Tiger', 'Giraffe'];
     animals.push('Lion', 'Prairie Dog');
     animals.unshift('Anteater', 'Alligator');
@@ -77,7 +77,7 @@ the console. Review the following link for tips:
         return includeString;
     }
     console.log(findMatchingAnimals('A'));
-
+/*
 4. Write a function camelCase(cssProp) that changes dash-separated CSS properties like
     'margin-left' into camel-cased 'marginLeft'.
     The function should remove all dashes, and uppercase the first letter of each word after a
@@ -85,7 +85,7 @@ the console. Review the following link for tips:
 
     b) Create variants of the camelCase function that use different types of for loops, and
     c) with and without the conditional operator.
-
+*/
     const camelCase = (cssProp) => {
         let separated = cssProp.split("-")
         for (let i = 1; i < separated.length; i++) {
@@ -118,7 +118,7 @@ the console. Review the following link for tips:
     console.log(camelCase("margin-left"));
     console.log(camelCaseCondition("margin-right"));
     console.log(camelCaseWhile("margin-up-down-left-right"));
-
+/*
 5. a) Explain why the above code returns the wrong answer
     b) Create a function currencyAddition(float1, float2) which safely adds the two
     decimal numbers float1 and float2 and returns the correct float result.
@@ -129,7 +129,7 @@ the console. Review the following link for tips:
     US/docs/Web/JavaScript/Reference/Statements/switch may be useful.
     
     d) (Extension) Extend the above function to include a fourth argument numDecimals
-    
+*/  
     let twentyCents = 0.20
     let tenCents = 0.10
     console.log(`${twentyCents} + ${tenCents} = ${twentyCents + tenCents}`)
@@ -138,15 +138,12 @@ the console. Review the following link for tips:
     let fixedTen = tenCents.toFixed(2);
     console.log(fixedTwenty + fixedTen)
 
-    I. It's not working because of floating point impercision and the toFixed cuntion needs to be on the result of the addition.
+    // I. It's not working because of floating point impercision and the toFixed cuntion needs to be on the result of the addition.
 
     const currencyAddition = (num1, num2) => {
         return (num1 + num2).toFixed(2);
     }
     console.log(currencyAddition(twentyCents, tenCents));
-
-    let tenCents = 0.10;
-    let twentyCents = 0.20;
 
     const currencyOperation = (num1, num2, operation, numDecimals) => {
         if (!Number.isInteger(numDecimals)) return "Number of decimals invalid";
@@ -166,12 +163,12 @@ the console. Review the following link for tips:
     }
 
     console.log(currencyOperation(tenCents, twentyCents, '+', 5));
-
+/*
 6. Create a function unique(duplicatesArray) which takes an array parameter that may
     include duplicates. Your function should return an array containing only the unique values
     from duplicatesArray.
     Test with the following arrays and create another one of your own.
-
+*/
     const colors = ['red', 'green', 'blue', 'yellow', 'orange', 'red', 'blue', 'yellow'];
     const testScores = [55, 84, 97, 63, 55, 32, 84, 91, 55, 43];
     const myArray = ['chicken', 'steak', 'lamb', 'veggies', 'chicken', 'pork', 'steak'];
@@ -180,8 +177,10 @@ the console. Review the following link for tips:
         return [...new Set(arrayOfWords)];
     }
 
+    console.log(unique(colors));
+    console.log(unique(testScores));
     console.log(unique(myArray));
-
+/*
 7. Use the following array of book objects to practice the array functions for map, find and
 filter. Test each of your answers to the below tasks.
 
@@ -200,7 +199,7 @@ filter. Test each of your answers to the below tasks.
 
     e) (Extension) Write a function latestBook() that uses find and forEach to get the
     book with the most recent publication date.
-
+*/
     const books = [
         { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
         { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
@@ -247,7 +246,7 @@ filter. Test each of your answers to the below tasks.
     }
 
     console.log(latestBook());
-
+/*
 8. The following code creates a new Map object for storing names beginning with A, B, or C
     with their phone numbers.
 
@@ -263,7 +262,7 @@ filter. Test each of your answers to the below tasks.
     e) Combine the contents of the two individual Maps into a single phoneBook Map
 
     f) Print out the full list of names in the combined phone book
-
+*/
     const phoneBookABC = new Map() //an empty map to begin with
     phoneBookABC.set('Annabelle', '0412312343');
     phoneBookABC.set('Barry', '0433221117');
@@ -287,7 +286,7 @@ filter. Test each of your answers to the below tasks.
     const fullPhoneBook = new Map([...phoneBookABC, ...phoneBookDEF]);
 
     console.log(fullPhoneBook);
-
+/*
 9. Given the below salaries object, perform the following tasks.
 
     a) Write a function sumSalaries(salaries) that calculates and returns the total of all
@@ -295,7 +294,7 @@ filter. Test each of your answers to the below tasks.
 
     b) Write a function topEarner(salaries) that calculates and returns the name of the
     person earning the highest salary
-
+*/
     let salaries = {
         "Timothy" : 35000,
         "David" : 25000,
@@ -312,6 +311,8 @@ filter. Test each of your answers to the below tasks.
         return sum;
     };
 
+    console.log(sumSalaries(salaries));
+
     const topEarner = (salaries) => {
         let amount = 0;
         let name = "";
@@ -325,6 +326,8 @@ filter. Test each of your answers to the below tasks.
         return `${name} has the highest salary at $${amount}`;
     }
 
+    console.log(topEarner(salaries));
+/*
 10.The following code uses the Date object to print the current time and the number of hours
     that have passed today so far. Extend the code to do the following:
 
@@ -336,7 +339,7 @@ filter. Test each of your answers to the below tasks.
 
     d) Write a function daysInBetween(date1, date2) which calculates and returns the
     amount of days in between the two given dates.
-
+*/
     const today = new Date();
     console.log('Current time is ' + today.toLocaleTimeString());
     console.log(today.getHours() + ' hours have passed so far today');
@@ -353,4 +356,4 @@ filter. Test each of your answers to the below tasks.
     }
 
     console.log(daysInBetween("07/13/2024", "07/15/2024"));
-*/
+

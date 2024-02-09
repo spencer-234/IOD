@@ -31,14 +31,16 @@
     III. 'positive is true' will print because an integer other than zero is a truthy value.
 
 4. Rewrite this if using the ternary/conditional operator '?'. Test it with different values for a and b. What does the ‘+=’ do?
+*/
     let a = 11, b = 3;
     let result = `${a} + ${b} is `;
     (a + b < 10) ? result += 'less than 10' : result += 'greater than 10';
     console.log(result);
-
+/*
     I. '+=' will add whatever value is on the right to the variable on the left and the new variable will equal the result.
 
 5. Rewrite the following function using: a) function expression syntax, and b) arrow function syntax. Test each version to make sure they work the same.
+*/
     const getGreeting = function(name) {
         return `Hello ${name}!`;
     }
@@ -47,7 +49,7 @@
 
     console.log(getGreeting('Bill'));
     console.log(getGreeting2('Bob'));
-
+/*
 6.  a) Complete the inigo object by adding a lastName property and including it in the
     greeting.
 
@@ -56,7 +58,7 @@
     https://www.imdb.com/title/tt0093779/characters/nm0001597.
 
     c) Update getCatchPhrase to use arrow function syntax and a conditional operator.
-
+*/
     const westley = {
       name: "Westley",
       numFingers: 5,
@@ -79,7 +81,7 @@
     };
     inigo.greeting(westley);
     inigo.greeting(rugen);
-
+/*
 7. The following object represents a basketball game and keeps track of the score as the
     game progresses.
 
@@ -93,7 +95,7 @@
     full time console messages
 
     d) Test your object by chaining all the method calls together in different combinations.
-
+*/
     const basketballGame = {
       score: 0,
       fouls: 0,
@@ -139,7 +141,7 @@
       .freeThrow()
       .freeThrow()
       .finalScore();
-
+/*
 8. The object below represents a single city.
 
     a) Write a function that takes an object as an argument and uses a for...in loop to access
@@ -148,7 +150,7 @@
 
     b) Create a new object for a different city with different properties and call your function
     again with the new object.
-
+*/
     const sydney = {
       name: "Sydney",
       population: 5_121_000,
@@ -173,7 +175,7 @@
 
     printObject(sydney);
     printObject(newYork);
-
+/*
 9. Use the following variables to understand how JavaScript stores objects by reference.
     a) Create a new moreSports variable equal to teamSports and add some new sport
     values to it (using push and unshift)
@@ -191,7 +193,7 @@
     I. The value of the array and object did change due to the copies being direct references to the original
         address in memory of the object. The string did not change because the new string is a copy of the first one
         but exists in a different memory address.
-
+*/
     let teamSports = ["Hockey", "Cricket", "Volleyball"];
     let dog1 = "Bingo";
     let cat1 = { name: "Fluffy", breed: "Siberian" };
@@ -205,7 +207,7 @@
     console.log(teamSports);
     console.log(dog1);
     console.log(cat1);
-
+/*
 10. The following constructor function creates a new Person object with the given name and age values.
     a) Create a new person using the constructor function and store it in a variable
 
