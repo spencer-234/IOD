@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #e3f2fd;
+      }
+      .card {
+        padding: 10px;
+      }
+      .card-title {
+        font-weight: 600;
+        font-size: 3em;
+        padding: 0 0 10px 0;
+      }
+      .card-description {
+        font-weight: 400;
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="inputField">Card Content:</label>
+    <button onclick="addYourOwnCard()">Add Your Own Card</button>
+    <button onclick="addCardFromArray()">Add from exercise 2 array</button>
+    <button>Add artist</button>
+    <input type="text" id="inputField" placeholder="Content" />
+    <template id="card-template">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-text"></div>
+        </div>
+      </div>
+    </template>
+    <div id="card-list"></div>
+    <script>
+      function addCard(title, text) {
+        const template = document
+          .getElementById("card-template")
+          .content.cloneNode(true);
+
+        template.querySelector(".card-title").innerText = title;
+        template.querySelector(".card-text").innerText = text;
+        document.querySelector("#card-list").appendChild(template);
+      }
+      addCard("My Card Title", "lorem ipsum ble bla");
+
+      const addYourOwnCard = () => {
+        const input = document.getElementById("inputField").value;
+
+        const template = document
+          .getElementById("card-template")
+          .content.cloneNode(true);
+
+        template.querySelector(".card-title").innerText = "Your own card";
+        template.querySelector(".card-text").innerText = input;
+        document.querySelector("#card-list").appendChild(template);
+      };
+
+      const addCardFromArray = () => {
+        const data = [
+          { name: "bob", age: 23 },
+          { name: "alice", age: 39 },
+        ];
+
+        data.forEach((person) => {
+          const template = document
+            .getElementById("card-template")
+            .content.cloneNode(true);
+
+          template.querySelector(".card-title").innerText = person.name;
+          template.querySelector(".card-text").innerText = person.age;
+          document.querySelector("#card-list").appendChild(template);
+        });
+      };
+
+      const addArtist = () => {
+        const artist = {
+          name: "Van Gogh",
+          portfolio: [
+            {
+              title: "portrait",
+              url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
+            },
+            {
+              title: "sky",
+              url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
+            },
+          ],
+        };
+
+        const img = document.createElement("img");
+      };
+    </script>
+  </body>
+</html>

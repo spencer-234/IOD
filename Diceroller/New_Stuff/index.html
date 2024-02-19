@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./dice.js"></script>
+</head>
+<body>
+
+    <header>
+        <h2>This is the Dice Roller</h2>
+    </header>
+    <nav>
+        <p>User instructions: Click a button to win!</p>
+    </nav>
+    <article>
+        <div class="row">
+            <img src="./images/d4.png" alt="d4Dice" class="diceImage">
+            <button class="button" id="rollBtn" onclick="diceRoll(1, 4, 'roll4')">Roll a D4</button>
+            <h1 id="roll4"></h1>
+            <img src="./images/d6.png" alt="d6Dice" class="diceImage">
+            <button class="button" id="rollBtn" onclick="diceRoll(1, 6, 'roll6')">Roll a D6</button>
+            <h1 id="roll6"></h1>
+        </div>
+        <div class="row">
+            <img src="./images/d8.png" alt="d8Dice" class="diceImage">
+            <button class="button" id="rollBtn" onclick="diceRoll(1, 8, 'roll8')">Roll a D8</button>
+            <h1 id="roll8"></h1>
+            <img src="./images/d10.png" alt="d10Dice" class="diceImage">
+            <button class="button" id="rollBtn" onclick="diceRoll(1, 10, 'roll10')">Roll a D10</button>
+            <h1 id="roll10"></h1>
+        </div>
+        <div class="row">
+            <img src="./images/d12.png" alt="d12Dice" class="diceImage">
+            <button class="button" id="rollBtn" onclick="diceRoll(1, 12, 'roll12')">Roll a D12</button>
+            <h1 id="roll12"></h1>
+            <img src="./images/d20.webp" alt="d20Dice" class="diceImage">
+            <button class="button" id="rollBtn" onclick="diceRoll(1, 20, 'roll20')">Roll a D20</button>
+            <h1 id="roll20"></h1>
+        </div>
+    </article>
+    <footer>
+        <p>COPYRIGHT INFO: Mine Not Yours</p>
+    </footer>
+</body>
+</html>

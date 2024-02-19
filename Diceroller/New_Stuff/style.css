@@ -1,0 +1,67 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+   background-color: #3f3939;
+   text-align: center;
+   padding: 2rem;
+   font-size: 35px;
+   color: yellow;
+}
+
+h2 {
+    margin: 0;
+}
+
+nav {
+    border: 1px solid green;
+    background-color: gray;
+    padding: 1rem;
+    text-align: center;
+    font-size: 25px;
+    /* color: white; */
+}
+
+nav p {
+    color: white;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diceImage {
+    width: 200px;
+}
+
+h1 {
+    margin: 0 10px;
+}
+
+article button {
+    height: 2rem;
+}
+
+footer {
+    background-color: cyan;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
