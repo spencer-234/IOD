@@ -18,13 +18,19 @@
         font-weight: 400;
         font-size: 2em;
       }
+      .portfolio-items {
+        display: flex;
+      }
+      .portfolio-item {
+        padding: 2em;
+      }
     </style>
   </head>
   <body>
     <label for="inputField">Card Content:</label>
     <button onclick="addYourOwnCard()">Add Your Own Card</button>
     <button onclick="addCardFromArray()">Add from exercise 2 array</button>
-    <button>Add artist</button>
+    <button onclick="addArtistCard()">Add artist</button>
     <input type="text" id="inputField" placeholder="Content" />
     <template id="card-template">
       <div class="card">
@@ -34,9 +40,24 @@
         </div>
       </div>
     </template>
+    <template id="artist-template">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="portfolio-items"></div>
+        </div>
+      </div>
+    </template>
+
+    <template id="portfolio-template">
+      <div class="portfolio-item">
+        <div class="portfolio-item-title"></div>
+        <img class="portfolio-item-image" width="600" />
+      </div>
+    </template>
     <div id="card-list"></div>
     <script>
-      function addCard(title, text) {
+      const addCard = (title, text) => {
         const template = document
           .getElementById("card-template")
           .content.cloneNode(true);
@@ -44,19 +65,13 @@
         template.querySelector(".card-title").innerText = title;
         template.querySelector(".card-text").innerText = text;
         document.querySelector("#card-list").appendChild(template);
-      }
+      };
       addCard("My Card Title", "lorem ipsum ble bla");
 
       const addYourOwnCard = () => {
         const input = document.getElementById("inputField").value;
 
-        const template = document
-          .getElementById("card-template")
-          .content.cloneNode(true);
-
-        template.querySelector(".card-title").innerText = "Your own card";
-        template.querySelector(".card-text").innerText = input;
-        document.querySelector("#card-list").appendChild(template);
+        addCard("Your Own Card", input);
       };
 
       const addCardFromArray = () => {
@@ -66,33 +81,65 @@
         ];
 
         data.forEach((person) => {
-          const template = document
-            .getElementById("card-template")
-            .content.cloneNode(true);
-
-          template.querySelector(".card-title").innerText = person.name;
-          template.querySelector(".card-text").innerText = person.age;
-          document.querySelector("#card-list").appendChild(template);
+          addCard(person.name, person.age);
         });
       };
 
-      const addArtist = () => {
-        const artist = {
-          name: "Van Gogh",
+      const artists = [
+        {
+            name: "Van Gogh",
+            portfolio: [
+                {title: "portrait", url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"},
+                {title: "sky", url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg"},
+            ]
+        },
+        {
+          name: "Picasso",
           portfolio: [
             {
-              title: "portrait",
-              url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
+              title: "Weeping Woman",
+              url: "https://upload.wikimedia.org/wikipedia/en/1/14/Picasso_The_Weeping_Woman_Tate_identifier_T05010_10.jpg",
             },
             {
-              title: "sky",
-              url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
+              title: "Old Guitarist",
+              url: "https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Old_guitarist_chicago.jpg/800px-Old_guitarist_chicago.jpg",
             },
           ],
-        };
+        },
+        {
+          name: "Rembrandt",
+          portfolio: [
+            {
+              title: "Storm on the Sea of Galilee",
+              url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg/800px-Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg",
+            },
+            {
+              title: "Abduction of Europa",
+              url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Rembrandt_Harmensz._van_Rijn_-_The_Abduction_of_Europa_-_Google_Art_Project.jpg/1280px-Rembrandt_Harmensz._van_Rijn_-_The_Abduction_of_Europa_-_Google_Art_Project.jpg",
+            },
+          ],
+        },
+      ];
 
-        const img = document.createElement("img");
+      const addArtist = (name, portfolio) => {
+            const template = document.getElementById("artist-template").content.cloneNode(true);
+
+            template.querySelector('.card-title').innerText = name;
+
+            portfolio.forEach(item => {
+                const itemTemplate = document.getElementById("portfolio-template").content.cloneNode(true);
+                itemTemplate.querySelector('.portfolio-item-title').innerText = item.title;
+                itemTemplate.querySelector('.portfolio-item-image').src = item.url;
+                itemTemplate.querySelector('.portfolio-item-image').alt = item.title;
+                template.querySelector('.portfolio-items').appendChild(itemTemplate);
+            })
+
+            document.querySelector('#card-list').appendChild(template);
       };
+
+      const addArtistCard = () => {
+        artists.forEach(artist => addArtist(artist.name, artist.portfolio))
+      }
     </script>
   </body>
 </html>
