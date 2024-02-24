@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moment Lab</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone.min.js"></script>
+</head>
+<body>
+    <div>
+        <h2>Time between birthday and current date</h2>
+        <span id="timeBetween"></span>
+        <h2>Which date is closer to today?</h2>
+        <label for="dateOne">Date One:</label>
+        <input type="text" id="dateOne" placeholder="MM/DD/YYYY">
+        <label for="dateTwo">Date Two:</label>
+        <input type="text" id="dateTwo" placeholder="MM/DD/YYYY">
+        <button onclick="checkDates()">Submit Dates</button>
+        <h3 class="answer"></h3>
+        <h2>Check if first date is before second</h2>
+        <label for="firstDate">First Date:</label>
+        <input type="text" id="firstDate" placeholder="YYYY-MM-DD">
+        <label for="secondDate">Second Date:</label>
+        <input type="text" id="secondDate" placeholder="YYYY-MM-DD">
+        <button onclick="checkFirstDate()">Submit Dates</button>
+        <h3 class="answerTwo"></h3>
+        <h2>London Time</h2>
+        <h3 id="londonTime"></h3>
+
+    </div>
+    <script>
+        let date = new Date();
+        let currentDay = moment([date.getFullYear(), date.getMonth(), date.getDate()]);
+        let birthday = moment([date.getFullYear(), 2, 2]);
+
+        let buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('click', (e) => e.preventDefault());
+        })
+
+        let difference = {
+            years: Math.abs(birthday.diff(currentDay, 'years')),
+            months: Math.abs(birthday.diff(currentDay, 'months')),
+            days: Math.abs(birthday.diff(currentDay, 'days')),
+        }
+
+        document.querySelector('#timeBetween').textContent = `There are ${difference.years} years, ${difference.months} months, and ${difference.days} days between now and my birthday.`
+
+        const checkDates = () => {
+            let dateOne = document.querySelector('#dateOne').value.split("/");
+            let dateTwo = document.querySelector('#dateTwo').value.split("/");
+            let answer = document.querySelector('.answer');
+
+            dateOne = moment([dateOne[2], dateOne[0] - 1, dateOne[1]]);
+            dateTwo = moment([dateTwo[2], dateTwo[0] - 1, dateTwo[1]]);
+
+            let diffOne = dateOne.diff(currentDay);
+            let diffTwo = dateTwo.diff(currentDay);
+
+            if (diffOne < diffTwo) {
+                answer.textContent = 'Date two is closer to today.';
+            } else {
+                answer.textContent = 'Date one is closer to today.';
+            }
+        }
+
+        const checkFirstDate = () => {
+            let firstDate = document.querySelector('#firstDate').value;
+            let secondDate = document.querySelector('#secondDate').value;
+            let answer = document.querySelector('.answerTwo');
+
+            if (moment(firstDate).isBefore(secondDate)) {
+                answer.textContent = 'The first date is before the second date';
+            } else {
+                answer.textContent = 'The first date is after the second date';
+            }
+        }
+        
+        setInterval(() => {
+            const display = document.querySelector('#londonTime');
+            display.textContent = moment().tz('Europe/London');
+        }, 1000);
+    </script>
+</body>
+</html>
