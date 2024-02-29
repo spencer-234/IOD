@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Example</title>
+  </head>
+  <body>
+    <div>
+        <label for="num1">First Number:</label>
+        <input type="text" id="num1">
+        <label for="num2">Second Number:</label>
+        <input type="text" id="num2">
+        <button>Add</button>
+        <button>Subtract</button>
+        <button>Multiply</button>
+        <button>Divide</button>
+        <div>
+          Result
+          <span id="result"></span>
+        </div>
+    </div>
+  </body>
+  <script>
+    let buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        fetchFunc(e);
+      });
+    })
+
+    const fetchFunc = (e) => {
+      let num1 = document.querySelector('#num1').value;
+      let num2 = document.querySelector('#num2').value;
+      let operator = e.target.textContent.toLowerCase();
+      fetch(`/calculator/${operator}?num1=${num1}&num2=${num2}`)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("result").innerHTML = data.result;
+        });
+    }
+  </script>
+</html>
