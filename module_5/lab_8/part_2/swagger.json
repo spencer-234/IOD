@@ -1,0 +1,56 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "My Fake Store Project",
+    "description": "This is a full stack fake store project to practice creating an api using the mvc structure.",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Fake Store Api",
+      "description": "Api endpoints for retrieving item data from server"
+    }
+  ],
+  "paths": {
+    "/items/": {
+      "get": {
+        "tags": ["Get all items"],
+        "summary": "Gets all products and their information",
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "This service allows you to get all products and their information."
+          }
+        }
+      }
+    },
+    "/items/find/{id}": {
+      "get": {
+        "tags": ["Category"],
+        "summary": "Gets all products from a certain category",
+        "parameters": [
+            {
+                "name": "id",
+                "in": "path",
+                "description": "The category for items user wishes to display."
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "This service allows you to get all products from the id (category) passed in the url"
+          }
+        }
+      }
+    }
+  },
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"]
+}
