@@ -1,0 +1,98 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.container,
+.display,
+button {
+    border-radius: 25px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 700px;
+    min-width: 500px;
+    background-color: black;
+    margin-top: 30px;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 30px;
+    width: 480px;
+    height: 150px;
+    padding: 0 10px 0 10px;
+    background-color: white;
+}
+
+.expression {
+    height: 50px;
+    font-size: 40px;
+    flex: 1;
+    max-width: 480px;
+    overflow: hidden;
+}
+
+.displaynum {
+    font-size: 60px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.buttons {
+    display: grid;
+    margin-top: 50px;
+    width: 500px;
+    height: 500px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1em;
+}
+
+button {
+    font-size: 30px;
+}
+
+.operator:hover {
+    background-color: rgb(83, 83, 83);
+}
+
+.operator {
+    background-color: rgb(128, 126, 126);
+    color: white;
+}
+
+#clear {
+    background-color: orange;
+}
+
+#clear:hover {
+    background-color: rgb(206, 134, 1);
+}
+
+.number:hover,
+#double_zero:hover,
+#decimal:hover {
+    background-color: rgb(190, 187, 187);
+}
