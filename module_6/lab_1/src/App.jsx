@@ -1,11 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Greeting from './components/Greeting.jsx'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Greeting from "./components/Greeting.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  // Lab 1 
+
+  // const Greeting = ({ name, children }) => {
+  //   return (
+  //     <>
+  //       <span>Hello {children ? children.name : name ? name : "World"}</span>
+  //     </>
+  //   );
+  // };
+
+  // export default Greeting;
 
   return (
     <>
@@ -29,9 +41,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <Greeting name={"John"}/>
+      <Greeting name={"John"} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
