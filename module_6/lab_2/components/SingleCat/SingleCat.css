@@ -1,0 +1,10 @@
+.catlist {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.catImage {
+    width: 100px;
+    height: 100px;
+}
